@@ -1,5 +1,6 @@
 filas = 11
 columnas = 5
+
 def cargar_matriz(filas, columnas):
     return [[None for _ in range(columnas)] for _ in range(filas)]
 
@@ -9,7 +10,7 @@ def cargar_jugadores(matriz):
         matriz[i][1] = int(input("Ingrese el documento del jugador: "))
         matriz[i][2] = int(input("Ingrese la edad del jugador: "))
         matriz[i][3] = int(input("Ingrese la cantidad de goles realizados: "))
-        matriz[i][4] = int(input("Ingrese la posicion en la que juega el jugador: "))
+        matriz[i][4] = (input("Ingrese la posicion en la que juega el jugador: "))
     return matriz
 
 def mostrar_jugadores(matriz):
@@ -29,20 +30,20 @@ def modificar_informacion_jugadores(matriz):
         return None
     
     print("Usted puede realizar las siguientes modificaciones:")
-    print("1 - Modificar nombre")
-    print("2 - Modificar documento")
-    print("3 - Modificar edad")
-    print("4 - Modificar cantidad de goles")
-    print("5 - Modificar posición")
+    print("0 - Modificar nombre")
+    print("1 - Modificar documento")
+    print("2 - Modificar edad")
+    print("3 - Modificar cantidad de goles")
+    print("4 - Modificar posición")
 
-    columna=int(input("Seleccione la opción que desea modificar:   [1-5] "))
+    columna=int(input("Seleccione la opción que desea modificar:   [0 - 4] "))
     if columna < 0 or columna >= len(matriz[0]):
         print("Opción no válida.")
     else:
         if columna in (1, 2, 3):
-            nuevo_valor = int(input(f"Ingrese el nuevo valor para {["nombre," "documento," "edad," "goles," "posicion"] [columna]}: "))
+            nuevo_valor = int(input(f"Ingrese el nuevo valor para {['nombre', 'documento', 'edad', 'goles', 'posicion'] [columna]}: "))
         else:
-            nuevo_valor = int(input(f"Ingrese el nuevo valor para {["nombre," "documento," "edad," "goles," "posicion"] [columna]}: "))
+            nuevo_valor = input(f"Ingrese el nuevo valor para {['nombre', 'documento', 'edad', 'goles', 'posicion'] [columna]}: ")
 
         matriz[fila][columna] = nuevo_valor
         print("Información del jugador modificada correctamente!")
